@@ -1,12 +1,49 @@
 <html><head><base href="https://websim.ai" />
 <meta charset="UTF-8">
 <title>Hanin's Blooming Garden</title>
-<link rel="stylesheet" href="https://www.cssscript.com/demo/sakura-falling-effect/dist/sakura.css" />
-<script src="https://www.cssscript.com/demo/sakura-falling-effect/dist/sakura.js"></script>
-  <script>var sakura = new Sakura('body', {
-    // options here
-});</script>
+  <script>
+    function createSakura() {
+      const sakura = document.createElement('div');
+      sakura.classList.add('sakura');
+      sakura.style.left = Math.random() * window.innerWidth + 'px';
+      sakura.style.animationDelay = Math.random() * 10 + 's';
+      document.body.appendChild(sakura);
+
+      setTimeout(() => {
+        sakura.remove();
+      }, 10000);
+    }
+
+    setInterval(createSakura, 500);
+  </script>
+  
 <style>
+
+
+    .sakura {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background-image: url('http://img.babathe.com/upload/specialDisplay/htmlImage/2019/20190104_rose.png');
+      background-size: contain;
+      animation: sakura-fall 5s linear infinite;
+    }
+
+    @keyframes sakura-fall {
+      0% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(100vh);
+      }
+    }
+
+
+
+
+  
   body, html {
     margin: 0;
     padding: 0;
